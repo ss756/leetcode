@@ -47,3 +47,24 @@ class Solution:
             final_str+=row_str
             row_str=''
         return final_str
+
+# second approach (A better approach)
+class Solution():
+    def convert(self, s: str, numRows: int):
+        if numRows == 1:
+            return s
+        period: int = 2 * (numRows - 1)
+        dictionary = dict()
+        lines = ["" for i in range(numRows)]
+        for i in range(0, len(s)):
+            if i < numRows:
+                dictionary[i] = i
+            else:
+                dictionary[i] = period - i
+        for i in range(len(s)):
+            lines[dictionary[i % period]] += s[i]
+        return "".join(lines)
+    def __init__(self):
+        str="PAYPALISHIRING"
+        result= self.convert(self,str,4)
+        print(result)
