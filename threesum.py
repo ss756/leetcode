@@ -63,7 +63,7 @@ class Solution:
     def __init__(self):
         nums_old_example=[-1, 0, 1, 2, -1, 4]
         # nums=[-2, 0, 1, 1, 2]
-        nums    = [-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]
+        nums = [-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]
         r= self.threeSum(nums)
         print(r)
 Solution()

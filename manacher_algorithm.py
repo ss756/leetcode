@@ -4,6 +4,7 @@ class Solution:
         # we have to seperate string  with #, and plus different character，since sometimes we have string like 'baab'
         P = [0] * len(modified)  # [0,0,0......,0]
         max_P, longPalindromic = 0, 0
+        print(modified)
         C, R = 1, 1
         for i in range(1, len(modified) - 2):
             mirr = C - (i - C)  # locate mirror place for current center.
