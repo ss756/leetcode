@@ -29,14 +29,17 @@ class Solution:
                 result += sum
                 divisor = d
                 sum = 1
-                if dividend < (divisor <<1 ):
-                    result += 1
+                if dividend < (divisor << 1):
+                    if dividend <= divisor:
+                        result += 1
                     break
         return result if sign == 1 else -result
+
+
     def __init__(self):
-        dividend = 31
-        divisor =2
-        print(self.divide(dividend, divisor))
+        dividend = 510
+        divisor = 5
+        print("finale", self.divide(dividend, divisor))
 
 Solution()
 
