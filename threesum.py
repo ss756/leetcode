@@ -27,9 +27,7 @@ class Solution:
             return []
 
         for k in range(len(nums) - 2):  # beacuse two-pointer:i=k+1 and j=len(nums)-1
-            print(k,nums[k])
             if nums[k] > 0:
-                print(nums[k])
                 break
             # skip duplicate value
             if k > 0 and nums[k] == nums[k - 1]:
