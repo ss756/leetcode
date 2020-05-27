@@ -1,7 +1,6 @@
 class Solution:
     def manacher(self, s:str):
         manachar_list = self.preprocess(s)
-        print(manachar_list)
         lps = [0] * len(manachar_list)
         center = 0
         right = 0
@@ -14,17 +13,28 @@ class Solution:
             if i + lps[i] > right:
                 center = i
                 right = lps[i]+ center
-            print(i,manachar_list[i], center,right, lps[i], mirror)
+        return manachar_list, lps
+
+    def longestPalindromicSubstring(self, lps) -> str:
+        print(original_string)
+        length = 0
+        center = 0
+        for k in range(1,len(lps)-1):
+            if lps[k] > length:
+                length = lps[k]
+                center = k
+        start = int((center - 1 - length)/2)
+        end = int((center - 1 + length)/2)
+        return original_string[start:end]
+
+    def longestpalindromesubstring(self,lps, i:int ):
+        length = lps[i+2]
+        center = i+2
+        return original_string[int((center-1-length)/2):int((center-1+length)/2)]
 
 
 
-
-
-
-
-
-
-    def preprocess(self, s:str) -> str:
+    def preprocess(self, s:str):
         t = [""]*(2*len(s)+3)
         t[0] = "$"
         t[2*len(s)+2] = "@"
@@ -36,10 +46,13 @@ class Solution:
 
 
     def __init__(self):
-        original_string="aabaaad"
-        (self.manacher(original_string))
-
-
+        global original_string
+        original_string= "aabaaad"
+        manacher_list, lps = (self.manacher(original_string))
+        longest_palindrome= self.longestPalindromicSubstring(lps)
+        print("LONGEST PALINDROME IS", longest_palindrome)
+        for i in range(0,2*len(original_string)):
+            print(i, ":", self.longestpalindromesubstring(lps,i))
 Solution()
 
 
