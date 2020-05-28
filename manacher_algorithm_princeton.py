@@ -27,7 +27,7 @@ class Solution:
         end = int((center - 1 + length)/2)
         return original_string[start:end]
 
-    def longestpalindromesubstring(self,lps, i:int ):
+    def longestpalindromesubstring(self, lps, i: int):
         length = lps[i+2]
         center = i+2
         return original_string[int((center-1-length)/2):int((center-1+length)/2)]
