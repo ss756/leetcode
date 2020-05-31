@@ -1,25 +1,46 @@
+# from collections import defaultdict
+# def subarray_sum(nums, target: int) ->int:
+#     total = 0
+#     prevsum = defaultdict(lambda: 0)
+#     sum =0
+#     for k in nums:
+#         sum += k
+#         if sum == target:
+#             total +=1
+#         if sum - target in prevsum:
+#             total += prevsum[sum - target]
+#         prevsum[sum] += 1
+#     return total
+#
+#
+# if __name__ == "__main__":
+#     nums =[3, 6, -10, 7, 10, 3, 1, 2]
+#     target =3
+#     print(subarray_sum(nums,3))
 from collections import defaultdict
-def findSubarray(arr, n, sum):
-    prevSum = defaultdict(lambda : 0)
-    res = 0
-    currsum = 0
-    for i in range(0, n):
-        currsum += arr[i]
-        if currsum == sum:
-            res += 1
-        if currsum - sum in prevSum:
-            print(arr[i], i )
-            res += prevSum[currsum - sum]
-            print(prevSum)
-        prevSum[currsum] += 1
-    print(prevSum)
-    return res
 
 
-if __name__ == "__main__":
-    arr =[3,6,-10,7,10,3,1,2]
-    sum = 3
-    n = len(arr)
-    print(findSubarray(arr, n, sum))
+class Solution:
+    def subarraySum(self, nums, k: int) -> int:
+        carrsum = 0
+        counter = 0
+        prevsum = defaultdict(lambda: 0)
+        for i in nums:
+            carrsum += i
+            if carrsum == k:
+                counter += 1
+            if carrsum - k in prevsum:
+                counter += prevsum[carrsum - k]
+            prevsum[carrsum] += 1
+        return counter
+    def __init__(self):
+        nums =[1, 1, 1]
+        target =2
+        print(self.subarraySum(nums, target))
+
+Solution()
+
+
+
 
 
