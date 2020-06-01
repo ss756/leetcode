@@ -35,7 +35,7 @@ class Solution:
         return counter
     def __init__(self):
         nums =[3, 4, 7, 2, -3, 1, 4, 2]
-        target =7
+        target = 7
         print(self.subarraySum(nums, target))
 
 Solution()
