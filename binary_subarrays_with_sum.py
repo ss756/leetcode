@@ -31,6 +31,6 @@ class Solution:
 
     def __init__(self):
         A=[0, 1, 0, 1, 0]
-        sum =0
+        sum =2
         print(self.numSubarraysWithSum(A,sum))
 Solution()

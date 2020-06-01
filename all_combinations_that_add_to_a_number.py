@@ -7,6 +7,7 @@ def subset_sum(numbers, target, partial=[]):
     for i in range(0, len(numbers)):
         n = numbers[i]
         remaining = numbers[i+1:]
+        print(partial, remaining, target)
         subset_sum(remaining, target, [n] + partial)
 
 if __name__ == "__main__":
