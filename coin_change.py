@@ -34,8 +34,8 @@ import sys
 #             return -1
 
 
-class Solution:
-    def coinChange(self, coins: List[int], amount: int) -> int:
+
+def coinChange( coins, amount: int) -> int:
 
         # initialization for dp_table
         dp_table = [float('inf') for _ in range(amount + 1)]
