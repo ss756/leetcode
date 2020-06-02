@@ -1,38 +1,22 @@
 import sys
-# def coin_change(denominations, target:int):
-#     arr = [None]*(target+1)
-#     n = len(denominations)
-#     arr[0] = 0
-#     print(arr)
-#     for k in range(1, target+1):
-#         arr[k] = sys.maxsize
-#     for i in range(0, target):
-#         for j in range(1, target+1):
-#             if j >= denominations[i]:
-#                 if arr[j] > arr[j-denominations[i]]:
-#                     arr[j] = arr[j - denominations[i]+1]
-#     return arr[target]
-
-# import sys
-# def coinChange( nums, amount: int) -> int:
-#         coins = list(range(amount+1))
-#         if amount == 0:
-#             return -1
-#         coins[0] = 0
-#         for k in range(1, amount + 1):
-#             coins[k] == sys.maxsize
-#         for i in range(1, amount + 1):
-#             for j in range(0, len(nums)):
-#                 if nums[j] <= i:
-#                     tempcoins = coins[i - nums[j]]
-#                     if tempcoins != sys.maxsize and tempcoins + 1 < coins[i]:
-#                         coins[i] = tempcoins + 1
-#         print(coins[amount])
-#         if coins[amount]:
-#             return coins[amount]
-#         else:
-#             return -1
-
+def coin_change(denominations, target:int):
+    n = len(denominations)
+    arr = list()
+    arr = [float('inf') for _ in range(0,target+1)]
+    arr[0] = 0
+    print(arr)
+    for i in range(0,len(denominations)):
+        for j in range(1, target+1):
+            if j >= denominations[i]:
+                if arr[j] > arr[j-denominations[i]]:
+                    arr[j] = arr[j - denominations[i]]+1
+    print(arr)
+    if arr[target] != float('inf'):
+        # Accept, return total count of coin change
+        return arr[target]
+    else:
+        # Reject, no solution
+        return -1
 
 
 def coinChange( coins, amount: int) -> int:
@@ -60,6 +44,7 @@ def coinChange( coins, amount: int) -> int:
             return -1
 
 if __name__ == "__main__":
-    l = [2]
-    target = 3
-    print (coinChange(l,target))
+    l = [7]
+    target = 6
+    print (coin_change(l,target))
+    print((coinChange(l,target)))
