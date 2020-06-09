@@ -21,8 +21,8 @@ class Solution:
             return False
         return dp(0, 0)
     def __init__(self):
-        maxchoosableInteger  =10
-        desiredTotal = 11
+        maxchoosableInteger= 7
+        desiredTotal = 15
         print(self.canIWin(maxchoosableInteger, desiredTotal))
 
 
