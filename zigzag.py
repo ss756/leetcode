@@ -40,12 +40,12 @@ class Solution:
                 character_pos[i]=row
                 row-=1
         for i in range(1,numRows+1):
-            row_str=''
+            row_str = ''
             for j in range(len(character_pos)):
-                if character_pos[j]==i:
-                    row_str+= s[j]
-            final_str+=row_str
-            row_str=''
+                if character_pos[j] == i:
+                    row_str += s[j]
+            final_str += row_str
+            row_str = ''
         return final_str
 
 # second approach (A better approach)
@@ -54,6 +54,7 @@ class Solution():
         if numRows == 1:
             return s
         period: int = 2 * (numRows - 1)
+        print("period value is", period)
         dictionary = dict()
         lines = ["" for i in range(numRows)]
         for i in range(0, len(s)):
@@ -61,10 +62,13 @@ class Solution():
                 dictionary[i] = i
             else:
                 dictionary[i] = period - i
+        print(dictionary)
         for i in range(len(s)):
+            print(dictionary[ i % period])
             lines[dictionary[i % period]] += s[i]
         return "".join(lines)
     def __init__(self):
-        str="PAYPALISHIRING"
-        result= self.convert(self,str,4)
+        str = "PAYPALISHIRING"
+        result = self.convert(str, 3)
         print(result)
+Solution()
